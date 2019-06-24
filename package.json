@@ -1,0 +1,23 @@
+{
+  "name": "SalesBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bot-schmiede/SalesBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bot-schmiede/SalesBot/issues"
+  },
+  "homepage": "https://github.com/bot-schmiede/SalesBot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
