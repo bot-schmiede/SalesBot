@@ -19,5 +19,8 @@
   "homepage": "https://github.com/bot-schmiede/SalesBot#readme",
   "dependencies": {
     "discord.js": "^11.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
