@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-const saleSchema = mongose.Schema({
-  link: String
-  start: Date,
-  end: Date,
-  description: String
+const saleSchema = mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  link: {type: String, required: true},
+  start: {type: Date, required: true},
+  end: {type: Date, required: true},
+  description: {type: String, required: true},
 });
 
-module.exports = mongose.model('Sale', saleSchema);
+module.exports = mongoose.model('Sale', saleSchema);
