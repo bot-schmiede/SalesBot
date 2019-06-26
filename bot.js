@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 
 const PREFIX = "$";
 
-const Sale = require('./models/sale');
-
+const SaleController = require('./controllers/sales');
 
 let bot = new Discord.Client();
 
@@ -21,8 +20,6 @@ bot.on('ready', async () => {
     console.log(e.stack);
   }
 });
-
-
 
 //conect to DB
 mongoose.connect(
@@ -55,30 +52,17 @@ bot.on('message', message => {
 
   switch(cmd) {
     case 'foo':
-
+      //dumy data
       let saleData = {
         link: "http://foo.bar.baz",
         start: Date("now"),
         end: Date("now"),
         description: "ganz toller test was das denn fuern meeeega sale ist"
       };
-      const sale = new Sale({
-        _id: new mongoose.Types.ObjectId(),
-        link: saleData.link,
-        start: saleData.start,
-        end: saleData.end,
-        description: saleData.description
-      });
-
-      sale.save()
-      .then(console.log)
-      .catch(console.error);
+      SaleController.add_sale(saleData, message);
       break;
     case 'bar':
-      Sale.find()
-      .exec()
-      .then(console.log)
-      .catch(console.error)
+    SaleController.get_all(message);
     break;
     default:
       message.channel.send('soon tm');
