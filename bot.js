@@ -29,7 +29,7 @@ mongoose.connect(
   'mongodb://' +
   process.env.USER + ':' +
   process.env.PASSWD +
-  '@sales-bot-shard-00-01-n9i0u.mongodb.net:27017/test?ssl=true&replicaSet=sales-bot--shard-0&authSource=admin',
+  '@sales-bot-shard-00-01-n9i0u.mongodb.net:27017/test?ssl=true&replicaSet=Sales-Bot-shard-0&authSource=admin',
   {
     useNewUrlParser: true,
     dbName: 'test',
