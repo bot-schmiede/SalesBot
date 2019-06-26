@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const PREFIX = "$";
 
-const sale = require('./models/sale');
+const Sale = require('./models/sale');
 
 
 let bot = new Discord.Client();
@@ -62,8 +62,7 @@ bot.on('message', message => {
         end: Date("now"),
         description: "ganz toller test was das denn fuern meeeega sale ist"
       };
-
-      const Sale = new sale({
+      const sale = new Sale({
         _id: new mongoose.Types.ObjectId(),
         link: saleData.link,
         start: saleData.start,
@@ -71,18 +70,15 @@ bot.on('message', message => {
         description: saleData.description
       });
 
-      Sale.save()
-      .then(respons => {
-        message.channel.send(response);
-      })
-      .catch(err => {
-        console.error(err);
-        message.channel.send(response);
-      });
-
+      sale.save()
+      .then(console.log)
+      .catch(console.error);
       break;
     case 'bar':
-      message.channel.send('nope! not yet!');
+      Sale.find()
+      .exec()
+      .then(console.log)
+      .catch(console.error)
     break;
     default:
       message.channel.send('soon tm');
