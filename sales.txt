@@ -1,2 +1,21 @@
-https://www.humblebundle.com/store/promo/software-sale/?partner=serveusel
-Steam-summersale
+   link: 'http://foo.bar.baz',
+  start: 2019-06-26T17:27:55.000Z,
+  end: 2019-06-26T17:27:55.000Z,
+  description: 'ganz toller test was das denn fuern meeeega sale ist',
+    link: 'http://foo.bar.baz',
+  start: 2019-06-26T17:30:01.000Z,
+  end: 2019-06-26T17:30:01.000Z,
+  description: 'ganz toller test was das denn fuern meeeega sale ist',
+    link: 'http://foo.bar.baz',
+  start: 2019-06-26T17:32:06.000Z,
+  end: 2019-06-26T17:32:06.000Z,
+  description: 'ganz toller test was das denn fuern meeeega sale ist',
+    link: 'http://foo.bar.baz',
+  start: 2019-06-26T18:31:57.000Z,
+  end: 2019-06-26T18:31:57.000Z,
+  description: 'ganz toller test was das denn fuern meeeega sale ist',
+    link: 'http://foo.bar.baz',
+  start: 2019-06-26T19:02:35.000Z,
+  end: 2019-06-26T19:02:35.000Z,
+  description: 'ganz toller test was das denn fuern meeeega sale ist',
+ 
