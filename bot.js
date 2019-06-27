@@ -84,7 +84,7 @@ bot.on("message",function(message) {
       console.log('year:',year, 'month:', month, 'day:', day);
 
       let theDate = `${year},${month},${day}`;
-      let theRealDate = Date(theDate);
+      let theRealDate = new Date(theDate);
 
       console.log('theDate: ', theDate);
       console.log('theRealDate: ', theRealDate);
