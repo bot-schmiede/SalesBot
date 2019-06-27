@@ -75,14 +75,14 @@ bot.on("message",function(message) {
       var SaleEnd = args[2]
       var SaleDescription = args[3]// here schould be the description to the sale
       message.channel.send(SaleLink+SaleEnd+SaleDescription)
-    /*  let saleData = {
+      let saleData = {
         link: SaleLink,
         start: Date("now"),
         end: Date("now"),
         description: SaleDescription
       };
       SaleController.add_sale(saleData, message);
-      console.log(SaleLink +"and"+SaleDescription+"saved");*/
+      console.log(SaleLink +"and"+SaleDescription+"saved");
       break;
 
     case "help"://help Command
