@@ -54,6 +54,7 @@ bot.on("message",function(message) {
     case "test"://just for testing purpose(sends message)
       message.channel.send("test done");
       break;
+
     case "testembed"://just for testing purpose(sends embed)
       var embedtest = new Discord.RichEmbed()
       .setColor(0xcc00cc)
@@ -62,44 +63,46 @@ bot.on("message",function(message) {
       break;
       //here the sales should be displayed
     case "sales":
-      fs.readFile("sales.txt", "utf-8", (err, data) => {
+      /*fs.readFile("sales.txt", "utf-8", (err, data) => {
         var Salesdata = data
         var Salesembed = new Discord.RichEmbed()
         .setTitle("Sales")
         .addField("Sales we currently have saved",data)
         message.channel.send(Salesembed);
-      });
+      });*/
       SaleController.get_all(message);
       break;
+
     case "addsale"://ads a Sale to the List
       const args2 = message.content.slice(PREFIX.length).trim().split(/ +/g);
-      var Addsale = args[1] // here schould be the link to the sale
-      fs.writeFile("sales.txt", Addsale+ "\r\n",{ flag: 'a+' }, (err) => {// here you should the Command to save it in the database
+      var SaleLink = args[1]// here schould be the link to the sale
+      var SaleDescription = args[2]// here schould be the description to the sale
+      /*fs.writeFile("sales.txt", SaleLink+"+"+SaleDescription+ "\r\n",{ flag: 'a+' }, (err) => {// here you should the Command to save it in the database
         if (err) console.log(err);
-      });
-      console.log(Addsale +"saved");
-      message.channel.send("your sale got saved")
-      //dumy data
+      });*/
+      //data
       let saleData = {
-        link: "http://foo.bar.baz",
+        link: SaleLink,
         start: Date("now"),
         end: Date("now"),
-        description: "ganz toller test was das denn fuern meeeega sale ist"
+        description: SaleDescription
       };
       SaleController.add_sale(saleData, message);
+      console.log(SaleLink +"and"+SaleDescription+"saved");
       break;
+
     case "help"://help Command
       var Helpembed = new Discord.RichEmbed()
       .setColor(0x00008B)
       .setTitle("SaleBot Commands:")
-      .addField("Prefix : $")
+      .addField("Prefix : $","-----------------------------------------------------------------------------")
       .addField("$help","gives you this list")
       .addField("$sales","shows you all the Sales we currently have saved in our data")
-      .addField("$addsale [Salelink]","you can add a Sale to the Saleslist")
+      .addField("$addsale [Salelink] [Description]","you can add a Sale to the Saleslist")
       message.channel.send(Helpembed);
       break;
     default:
-      message.channel.send('nope! go away!');
+      message.channel.send('there is no command like this one. Try $help');
       break;
   };//switch Ding
 });//message fuction
