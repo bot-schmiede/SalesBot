@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 var fs = require("fs");
 
-const PREFIX = "$";
+const PREFIX = ">";
 
 const SaleController = require('./controllers/sales');
 
@@ -45,7 +45,7 @@ mongoose.Promise = global.Promise;
 //Execute Commands
 bot.on("message",function(message) {
   if (message.author.equals(bot.user)) return;
-  console.log(message.content);// gives you a output , what is writen in the Chat
+  //console.log(message.content);// gives you a output , what is writen in the Chat
   if(!message.content.startsWith(PREFIX)) return;//return if there is no Prefix
   var args = message.content.substring(PREFIX.length).split(" ");
 
@@ -62,13 +62,6 @@ bot.on("message",function(message) {
       break;
       //here the sales should be displayed
     case "sales":
-      fs.readFile("sales.txt", "utf-8", (err, data) => {
-        var Salesdata = data
-        var Salesembed = new Discord.RichEmbed()
-        .setTitle("Sales")
-        .addField("Sales we currently have saved",data)
-        message.channel.send(Salesembed);
-      });
       SaleController.get_all(message);
       break;
     case "addsale"://ads a Sale to the List
