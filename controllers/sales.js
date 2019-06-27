@@ -12,7 +12,6 @@ exports.get_all = (message) => {
       let Salesembed = new Discord.RichEmbed()
         .setTitle(doc.description)
         .addField("link",doc.link)
-        .addField("from", doc.start)
         .addField("until:", doc.end)
         this.message.channel.send(Salesembed);
     });
