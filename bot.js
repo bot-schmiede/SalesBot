@@ -51,6 +51,10 @@ bot.on("message",function(message) {
 
   //all Commands
   switch (args[0].toLowerCase()) {
+    case "day":
+    var Today = Date("now")
+    message.channel.send(Today)
+    break;
     case "test"://just for testing purpose(sends message)
       message.channel.send("test done");
       break;
@@ -63,32 +67,22 @@ bot.on("message",function(message) {
       break;
       //here the sales should be displayed
     case "sales":
-      /*fs.readFile("sales.txt", "utf-8", (err, data) => {
-        var Salesdata = data
-        var Salesembed = new Discord.RichEmbed()
-        .setTitle("Sales")
-        .addField("Sales we currently have saved",data)
-        message.channel.send(Salesembed);
-      });*/
       SaleController.get_all(message);
       break;
 
     case "addsale"://ads a Sale to the List
-      const args2 = message.content.slice(PREFIX.length).trim().split(/ +/g);
       var SaleLink = args[1]// here schould be the link to the sale
-      var SaleDescription = args[2]// here schould be the description to the sale
-      /*fs.writeFile("sales.txt", SaleLink+"+"+SaleDescription+ "\r\n",{ flag: 'a+' }, (err) => {// here you should the Command to save it in the database
-        if (err) console.log(err);
-      });*/
-      //data
-      let saleData = {
+      var SaleEnd = args[2]
+      var SaleDescription = args[3]// here schould be the description to the sale
+      message.channel.send(SaleLink+SaleEnd+SaleDescription)
+    /*  let saleData = {
         link: SaleLink,
         start: Date("now"),
         end: Date("now"),
         description: SaleDescription
       };
       SaleController.add_sale(saleData, message);
-      console.log(SaleLink +"and"+SaleDescription+"saved");
+      console.log(SaleLink +"and"+SaleDescription+"saved");*/
       break;
 
     case "help"://help Command
@@ -98,7 +92,7 @@ bot.on("message",function(message) {
       .addField("Prefix : $","-----------------------------------------------------------------------------")
       .addField("$help","gives you this list")
       .addField("$sales","shows you all the Sales we currently have saved in our data")
-      .addField("$addsale [Salelink] [Description]","you can add a Sale to the Saleslist")
+      .addField("$addsale [Salelink] | [Enddate(YYYY-MM-DD)] | [Description]","you can add a Sale to the Saleslist")
       message.channel.send(Helpembed);
       break;
     default:
