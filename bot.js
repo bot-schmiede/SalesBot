@@ -92,7 +92,7 @@ bot.on("message", message => {
       .addField("Prefix : $","-----------------------------------------------------------------------------")
       .addField("$help","gives you this list")
       .addField("$sales","shows you all the Sales we currently have saved in our data")
-      .addField("$addsale [Salelink]  [Enddate(YYYY-MM-DD)]  [Description]","you can add a Sale to the Saleslist")
+      .addField("$addsale [Salelink]  [Enddate(YYYY-MM-DD)]  [GameName]","you can add a Sale to the Saleslist")
       message.channel.send(Helpembed);
       break;
     default:
