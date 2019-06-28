@@ -19,10 +19,6 @@ exports.get_all = (message) => {
   .catch(console.error)
 }
 
-function sendSale(item, index) {
-
-}
-
 exports.add_sale = (saleData, message) => {
   const sale = new Sale({
     _id: new mongoose.Types.ObjectId(),
