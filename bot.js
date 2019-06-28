@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 var fs = require("fs");
 
-const PREFIX = "$";
+const PREFIX = process.env.PREFIX ? process.env.PREFIX : '$'
 
 const SaleController = require('./controllers/sales');
 
@@ -28,10 +28,12 @@ mongoose.connect(
   'mongodb://' +
   process.env.USER + ':' +
   process.env.PASSWD +
-  '@sales-bot-shard-00-01-n9i0u.mongodb.net:27017/test?ssl=true&replicaSet=Sales-Bot-shard-0&authSource=admin',
+  '@salesbot-shard-00-01-yyrbx.mongodb.net:27017/' +
+  process.env.DB +
+  '?ssl=true&replicaSet=SalesBot-shard-0&authSource=admin',
   {
     useNewUrlParser: true,
-    dbName: 'test',
+    dbName: process.env.DB,
   }
 )
 .then(() => {
