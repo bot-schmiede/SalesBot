@@ -1,15 +1,23 @@
 const mongoose = require('mongoose');
 const Sale = require('../models/sale');
+const Discord = require('discord.js');
 
 exports.get_all = (message) => {
+  this.message = message;
   Sale.find()
   .exec()
   .then(docs => {
-    message.channel.send(docs);
+    docs.forEach((doc, idx, message) => {
+      //console.log(doc);
+      let Salesembed = new Discord.RichEmbed()
+        .setTitle(doc.description)
+        .addField("link",doc.link)
+        .addField("until:", doc.end)
+        this.message.channel.send(Salesembed);
+    });
   })
   .catch(console.error)
 }
-
 
 exports.add_sale = (saleData, message) => {
   const sale = new Sale({
