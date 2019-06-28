@@ -43,28 +43,14 @@ mongoose.Promise = global.Promise;
 
 
 //Execute Commands
-bot.on("message",function(message) {
+bot.on("message", message => {
   if (message.author.equals(bot.user)) return;
   console.log(message.content);// gives you a output , what is writen in the Chat
   if(!message.content.startsWith(PREFIX)) return;//return if there is no Prefix
-  var args = message.content.substring(PREFIX.length).split(" ");
+  let args = message.content.substring(PREFIX.length).split(" ");
 
   //all Commands
   switch (args[0].toLowerCase()) {
-    case "day":
-    var Today = Date("now")
-    message.channel.send(Today)
-    break;
-    case "test"://just for testing purpose(sends message)
-      message.channel.send("test done");
-      break;
-
-    case "testembed"://just for testing purpose(sends embed)
-      var embedtest = new Discord.RichEmbed()
-      .setColor(0xcc00cc)
-      .addField("by: " + message.member,"command: " + message.content)
-      message.channel.send(embedtest)
-      break;
       //here the sales should be displayed
     case "sales":
       SaleController.get_all(message);
@@ -74,7 +60,6 @@ bot.on("message",function(message) {
       var SaleLink = args[1]// here schould be the link to the sale
       var SaleEnd = args[2]
       var SaleDescription = args[3]// here schould be the description to the sale
-      message.channel.send(SaleLink+SaleEnd+SaleDescription)
       let saleData = {
         link: SaleLink,
         start: Date("now"),
