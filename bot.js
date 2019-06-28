@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 var fs = require("fs");
 
-const PREFIX = "$";
+const PREFIX = process.env.PREFIX ? process.env.PREFIX : '$'
 
 const SaleController = require('./controllers/sales');
 
