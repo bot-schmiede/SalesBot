@@ -4,7 +4,7 @@ This is the README of the SalesBot. This bot was created by NY_Cookie, God Emper
 
 1. [Purpose of this bot](#purpose-of-this-bot)
 2. [Functions of this bot](#functions-of-this-bot)
-3. [How to get this bot on your discord server?](#how-to-get-this-bot-on-your-discord-server?)
+3. [How to get this bot on your discord server?](#how-to-get-this-bot-on-your-discord-server)
 4. [Website](#website)
 
 ## Purpose of this bot
@@ -17,7 +17,7 @@ By typing "$sales" you get a list of all sales that are currently saved.
 By typing "$addsale <salelink> <enddate of the sale with YYYY-MM-DD> <name of the game>" you can add a sale by yourself. (salelink=the link where you can find the
 sale; enddate of the sale=the date the sale ends; name of the game=the name of the game)
 
-## How to get this bot on your discord server?
+## How to get this bot on your discord server
 You can add this bot with this [link](https://discordapp.com/oauth2/authorize?client_id=592769080759681038&permissions=8&scope=bot).
 After that you can choose the server where you can add it (you need to be an admin on the server for that). Choose your server, then click authorize.
 
