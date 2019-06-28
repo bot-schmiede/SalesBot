@@ -4,7 +4,9 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon index",
+    "start": "./node_modules/.bin/npm-run-all -p start-bot start-api",
+    "start-bot": "./node_modules/.bin/nodemon index",
+    "start-api": "./node_modules/.bin/nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
