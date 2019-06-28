@@ -61,29 +61,30 @@ bot.on("message", message => {
       var SaleEnd = args[2]
       var SaleDescription = args[3]// here schould be the description to the sale
 
+
       let year = SaleEnd.slice(0, 4);
-     console.log('SaleEnd:', SaleEnd)
-     let month = SaleEnd.slice(5, 7);
-     let day = SaleEnd.slice(8, 10);
+      console.log('SaleEnd:', SaleEnd)
+      let month = SaleEnd.slice(5, 7);
+      let day = SaleEnd.slice(8, 10);
 
-     console.log('year:',year, 'month:', month, 'day:', day);
+      console.log('year:',year, 'month:', month, 'day:', day);
 
-     let theDate = `${year},${month},${day}`;
-     let theRealDate = new Date(theDate);
+      let theDate = `${year},${month},${day}`;
+      let theRealDate = new Date(theDate);
 
-     console.log('theDate: ', theDate);
-     console.log('theRealDate: ', theRealDate);
+      console.log('theDate: ', theDate);
+      console.log('theRealDate: ', theRealDate);
 
-     //message.channel.send(SaleLink+SaleEnd+SaleDescription)
-     let saleData = {
-       link: SaleLink,
-       start: Date("now"),
-       end: theRealDate,
-       description: SaleDescription
-     };
-     SaleController.add_sale(saleData, message);
-     console.log(SaleLink +"and"+SaleDescription+"saved");
-     break
+      //message.channel.send(SaleLink+SaleEnd+SaleDescription)
+      let saleData = {
+        link: SaleLink,
+        start: Date("now"),
+        end: theRealDate,
+        description: SaleDescription
+      };
+      SaleController.add_sale(saleData, message);
+      console.log(SaleLink +"and"+SaleDescription+"saved");
+      break;
 
     case "help"://help Command
       var Helpembed = new Discord.RichEmbed()
