@@ -37,7 +37,7 @@ mongoose.connect(
   }
 )
 .then(() => {
-  console.log('\nconnected to database\n')
+  console.log('\nbot connected to database\n')
 }).catch(error => {
   console.log(error);
 });
