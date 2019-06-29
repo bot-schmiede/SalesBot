@@ -9,7 +9,7 @@ const saleSchema = mongoose.Schema({
   end: {
     type: Date,
     required: true,
-    validate: [futureValidator, 'Date must be less than End Date']
+    validate: [notInPastValidator, 'End date can not be in the past']
   },
   description: {
     type: String,
@@ -17,7 +17,7 @@ const saleSchema = mongoose.Schema({
   },
 });
 
-function futureValidator(value) {
+function notInPastValidator(value) {
   let date = new Date();
   date.setDate(date.getDate() - 1)
   return date <= value;
