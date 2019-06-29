@@ -6,10 +6,10 @@ const Sale = require('../../models/sale');
 
 router.get('/', (req, res, next) => {
   Sale.find()
+  .select('link start end description')
   .exec()
   .then(docs => {
-    console.log(docs);
-    res.status(200).json(docs);
+    res.status(200).json(response);
   })
   .catch(err => {
     console.error(err);
@@ -29,9 +29,13 @@ router.post('/', (req, res, next) => {
   });
   sale.save()
   .then(doc => {
-    console.log(doc);
     res.status(201).json({
-      createdSale: doc
+      createdSale: {
+        link: doc.link,
+        start: doc.start,
+        end: doc.end,
+        description: doc.description
+      }
     });
   })
   .catch(err => {
