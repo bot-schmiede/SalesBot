@@ -80,7 +80,6 @@ bot.on("message", message => {
       //message.channel.send(SaleLink+SaleEnd+SaleDescription)
       let saleData = {
         link: SaleLink,
-        start: Date("now"),
         end: theRealDate,
         description: SaleDescription
       };

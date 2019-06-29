@@ -23,7 +23,6 @@ router.post('/', (req, res, next) => {
   const sale = new Sale({
     _id: new mongoose.Types.ObjectId(),
     link: req.body.link,
-    start: Date('now'),
     end: req.body.end,
     description: req.body.description
   });
@@ -32,7 +31,6 @@ router.post('/', (req, res, next) => {
     res.status(201).json({
       createdSale: {
         link: doc.link,
-        start: doc.start,
         end: doc.end,
         description: doc.description
       }

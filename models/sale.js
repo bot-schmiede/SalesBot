@@ -6,11 +6,6 @@ const saleSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  start: {
-    type: Date,
-    required: true,
-    validate: [dateValidator, 'End Date must be more than Start Date']
-  },
   end: {
     type: Date,
     required: true,
@@ -21,10 +16,6 @@ const saleSchema = mongoose.Schema({
     required: true
   },
 });
-
-function dateValidator(value) {
-  return this.end >= value;
-}
 
 function futureValidator(value) {
   let date = new Date();

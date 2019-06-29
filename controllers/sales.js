@@ -26,7 +26,6 @@ exports.add_sale = (saleData, message) => {
   const sale = new Sale({
     _id: new mongoose.Types.ObjectId(),
     link: saleData.link,
-    start: saleData.start,
     end: saleData.end,
     description: saleData.description
   });
