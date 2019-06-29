@@ -1,21 +1,8 @@
 const express = require('express');
 const api = express();
 
+const saleRoutes = require('./api/routes/sales');
 
-api.use((req, res, next) => {
-  res.status(200).json({
-    message: 'it works'
-  });
-});
-
-
-// api.get('/', function (req, res) {
-//   res.send('Hello World')
-// })
-
-
-
-
-
+api.use('/sales', saleRoutes);
 
 module.exports = api;
