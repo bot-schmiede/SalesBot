@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 //import routes
 const saleRoutes = require('./api/routes/sales');
+const userRoutes = require('./api/routes/user');
+
 
 //conect to DB
 mongoose.connect(
@@ -47,6 +49,7 @@ api.use((req, res, next) => {
 
 //use routes
 api.use('/sales', saleRoutes);
+api.use('/user', userRoutes);
 
 //error handling
 api.use((req, res, next) => {
