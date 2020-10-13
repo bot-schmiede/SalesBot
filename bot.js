@@ -37,7 +37,7 @@ mongoose.connect(
   }
 )
 .then(() => {
-  console.log('\nconnected to database\n')
+  console.log('\nbot connected to database\n')
 }).catch(error => {
   console.log(error);
 });
@@ -80,7 +80,6 @@ bot.on("message", message => {
       //message.channel.send(SaleLink+SaleEnd+SaleDescription)
       let saleData = {
         link: SaleLink,
-        start: Date("now"),
         end: theRealDate,
         description: SaleDescription
       };

@@ -3,8 +3,11 @@ const Sale = require('../models/sale');
 const Discord = require('discord.js');
 
 exports.get_all = (message) => {
+  let date = new Date();
+  date.setDate(date.getDate() - 1);
   this.message = message;
   Sale.find()
+  .where('end').gt(date)
   .exec()
   .then(docs => {
     docs.forEach((doc, idx, message) => {
@@ -23,7 +26,6 @@ exports.add_sale = (saleData, message) => {
   const sale = new Sale({
     _id: new mongoose.Types.ObjectId(),
     link: saleData.link,
-    start: saleData.start,
     end: saleData.end,
     description: saleData.description
   });
